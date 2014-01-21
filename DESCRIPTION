@@ -1,6 +1,6 @@
-Package: ESEM_script
+Package: ESEMpackage
 Type: Package
-Title: ESEM script writter
+Title: ESEM script writer
 Author: Philip Parker <philip.parker@acu.edu.au>
 Maintainer: Philip Parker <philip.parker@acu.edu.au>
 Depends:
@@ -13,4 +13,4 @@ LazyLoad: yes
 Authors@R: c(person(given="Philip", family="Parker",
     email="philip.parker@uws.edu.au", role=c("aut", "cre")))
 Version: 0.1
-Date: 2014-01-21
+Date: 2014-01-22
