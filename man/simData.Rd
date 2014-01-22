@@ -31,13 +31,7 @@ Simple treatment by gender four group simulation data for multigroup invariance 
 \details{
 Dataset used to illustrate ESEM invariance in clinical applications in the supplementary material of Marsh et al., in press.
 }
-\source{
-\url{http://www.ncbi.nlm.nih.gov/pubmed/24313568}
-}
 \references{
-%%  ~~ possibly secondary sources and usages ~~
-}
-\examples{
-data(simData)
+\url{http://www.ncbi.nlm.nih.gov/pubmed/24313568}
 }
 \keyword{datasets}
