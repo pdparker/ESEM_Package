@@ -1,0 +1,4 @@
+load("/Users/philipparker/Dropbox/repos/github/ESEM_Package/data/simData.Rdata")
+load("/Users/philipparker/Dropbox/repos/github/ESEM_Package/data/simData.rda")
+data
+simData

@@ -1,0 +1,15 @@
+load("/Users/philipparker/Downloads/deb_complete.rda")
+deb_complete
+load("/Users/philipparker/Downloads/simData.Rdata")
+data
+load("/Users/philipparker/Downloads/simData.Rdata")
+data
+simData <- data
+simData
+ls
+ls()
+rm(data)
+simData
+str(simData)
+setwd("/Users/philipparker/Dropbox/repos/github/ESEM_Package/")
+save(simData, file="./data/simData.RData")
