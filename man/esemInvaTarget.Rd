@@ -35,9 +35,11 @@ ESEM invariance scripts for Mplus
 }
 \examples{
 data(simData)
+require(MplusAutomation)
+prepareMplusData(simData, filename="ESEM.dat")
 esemInvaTarget(2, simData, GroupVar = "TbyG", c("treatM", "contM", "treatF", "contF"),
-               1:12, FileOut=getwd(), FileIn="ESEM.dat",
-               Pattern=list(c(1,6), c(7,12)),LatentNames=c("Latent1", "Latent2")
+               Use = 1:12, FileIn="ESEM.dat",  Pattern=list(c(1,6), c(7,12)),
+               LatentNames=c("Latent1", "Latent2")
                )
 }
 \keyword{ESEM}

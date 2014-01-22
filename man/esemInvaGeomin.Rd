@@ -27,8 +27,11 @@ ESEM invariance scripts for Mplus
 }
 \examples{
 data(simData)
-esemInvaGeomin(2, simData, GroupVar = "TbyG", c("treatM", "contM", "treatF", "contF"),
-               use:1:12, FileIn="ESEM.dat")
+require(MplusAutomation)
+prepareMplusData(simData, filename="ESEM.dat")
+esemInvaGeomin(2, simData, GroupVar = "TbyG",
+               Groups=c("treatM", "contM", "treatF", "contF"),
+               Use = 1:12, FileIn="ESEM.dat")
 }
 \keyword{ESEM}
 \keyword{Mplus}
