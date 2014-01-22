@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=9" >
+
+<title>ESEM Invariance Script Writter</title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+
+
+
+
+</head>
+
+<body>
+<h1>ESEM Invariance Script Writter</h1>
+
+<h2>Overview</h2>
+
+<p>The esemInvaTarget function aims to take minimal user input and and return 13 fully functioning MPlus scripts for invariance across multiple groups. i.e., across gender or experimental conditions. Each script will fit one model of Marsh et al. typology of invariance models starting with a free or configural model with model 13 fitting a complete invariance model. From the configural model, subsequent models progressively holding elements of the model invariant between groups. The function should support invariance for two or more groups. The models are as follows:</p>
+
+<ul>
+<li>M1 – Configural</li>
+<li>M2 – FL</li>
+<li>M3 – FL, Uniq</li>
+<li>M4 – FL, FVCV</li>
+<li>M5 – FL, Inter</li>
+<li>M6 – FL, Uniq, FVCV</li>
+<li>M7 – FL, Uniq, Inter</li>
+<li>M8 – FL, FVCV, Inter</li>
+<li>M9 – FL, Uniq, FVCV, Inter</li>
+<li>M10 – FL, Inter, Latent Means</li>
+<li>M11 – FL, Uniq, Inter, Latent Means</li>
+<li>M12 – FL, FVCV, Inter, Latent Means</li>
+<li>M13 – FL, Uniq, FVCV, Inter, Latent Means</li>
+</ul>
+
+<p>Key:</p>
+
+<ul>
+<li>FL = Item factor loadings</li>
+<li>Uniq = Item uniquenesses/residuals</li>
+<li>Inter = Item intercepts</li>
+<li>FVCV = Latent variable factor variance covariance matrix</li>
+</ul>
+
+<h2>What is NOT supported.</h2>
+
+<p>The scripts produced are for crosssectional models only. Longtudinal models would require a consistent naming convention from the user.
+My experience is that this is rarely the case for Mplus scripts. </p>
+
+<p>I have currently only coded the scripts to use ML. I will add a switch for MLR or MLM soon. It is not clear that the 13 models of invariance
+works as expected for WLS so this will not be an option.</p>
+
+<h2>What it does.</h2>
+
+<p>The function first checks input. Mplus has a number of restriction on input files and the extensive checks aim to ensure they are met. The only exception to this is for variable names. Mplus requires variable names to be 8 characters or less but will run input scripts with more characters by truncating the names. As such the input script should run, however, too many variables with over 8 characters may make a script run over line character limits and result in odd output. For this reason it is best to ensure all variables are 8 characters or less. The functions here will return a warning for variables over 8 characters but will not produce an error.
+If you are only concerned with invariacne I would recomment using the geomin function as it is easier to code (see example below)
+and runs slightly faster. Fit will be the same regardless of rotation statergy.</p>
+
+<h2>How to Install.</h2>
+
+<pre><code>require(devtools)
+library(devtools)
+install_github(repo = &quot;ESEM_package&quot;, username=&quot;pdparker&quot;)
+</code></pre>
+
+<h2>To Do.</h2>
+
+<p>Functions would be better if modular. In particular where the ESEM functions will largely be beneficial only as a guide aspects of the code are useful. Indeed, the code to produce covariance sytax is something I use frequetly.</p>
+
+</body>
+
+</html>
+

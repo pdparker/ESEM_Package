@@ -39,23 +39,13 @@ The function first checks input. Mplus has a number of restriction on input file
 If you are only concerned with invariacne I would recomment using the geomin function as it is easier to code (see example below)
 and runs slightly faster. Fit will be the same regardless of rotation statergy.
 
-Example
+How to Install.
+---------------------------
+```
+require(devtools)
+library(devtools)
+install_github(repo = "ESEM_package", username="pdparker")
+```
+To Do.
 --------------------------
-Using Data from simulated model fond on this site for treatment group with target rotation:
-```
-esemInvaTarget(2, data, GroupVar = "TbyG", c("treatM", "contM", "treatF", "contF"),
-                1:6, FileOut="ESEM", FileIn="ESEM/ESEM.dat", 
-                Pattern=list(c(1,6), c(7,12)),LatentNames=c("Latent1", "Latent2"))
-```
-
-Using geomin rotation:
-```
-esemInvaGeomin(2, data, GroupVar = "TbyG", c("treatM", "contM", "treatF", "contF"),
-               1:6, FileOut=tempDir, FileIn=MplusData)
-```
-The entire work flow can be run passively by imputing the following code into R:
-
-```
-  trial<-"http://raw.github.com/pdparker/ESEM/master/exampleScript_ESEMS.R"
-	source(url(trial))
-```
+Functions would be better if modular. In particular where the ESEM functions will largely be beneficial only as a guide aspects of the code are useful. Indeed, the code to produce covariance sytax is something I use frequetly.
