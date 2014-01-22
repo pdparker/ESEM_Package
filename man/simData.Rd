@@ -38,6 +38,6 @@ Dataset used to illustrate ESEM invariance in clinical applications in the suppl
 %%  ~~ possibly secondary sources and usages ~~
 }
 \examples{
-NULL
+data(simData)
 }
 \keyword{datasets}
