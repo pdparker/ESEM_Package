@@ -16,12 +16,15 @@
 #' @export
 #' @examples
 #' data(simData)
-#' esemInvaTarget(2, data, GroupVar = "TbyG", c("treatM", "contM", "treatF", "contF"),
-#'                1:6, FileOut="ESEM", FileIn="ESEM.dat", 
-#'                Pattern=list(c(1,6), c(7,12)),LatentNames=c("Latent1", "Latent2")
+#' require(MplusAutomation)
+#' prepareMplusData(simData, filename="ESEM.dat")
+#' esemInvaTarget(2, simData, GroupVar = "TbyG", c("treatM", "contM", "treatF", "contF"),
+#'                Use = 1:12, FileIn="ESEM.dat",  Pattern=list(c(1,6), c(7,12)),
+#'                LatentNames=c("Latent1", "Latent2")
 #'                )
 
-esemInvaTarget <- function(Fs, Data, GroupVar, Groups, Use, FileOut=getwd(), FileIn="ESEM.dat", Pattern,
+esemInvaTarget <- function(Fs, Data, GroupVar, Groups, Use, 
+                           FileOut=getwd(), FileIn, Pattern,
                            LatentNames){
   #WARNINGS
   if(length(Pattern)!= Fs) stop("Number of distinct patterns must match the number of factors requested")

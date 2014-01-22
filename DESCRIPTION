@@ -9,7 +9,7 @@ Description: Writes multi group ESEM invariance scripts for MPLUS for 13 model
     taxonomy of invariance.
 License: GPL (>= 3)
 Encoding: UTF-8
-LazyLoad: yes
+LazyLoad: true
 Authors@R: c(person(given="Philip", family="Parker",
     email="philip.parker@uws.edu.au", role=c("aut", "cre")))
 Version: 0.1

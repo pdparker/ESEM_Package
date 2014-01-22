@@ -14,11 +14,14 @@
 #' @export
 #' @examples
 #' data(simData)
-#' esemInvaGeomin(2, data, GroupVar = "TbyG", c("treatM", "contM", "treatF", "contF"),
-#'                1:6, FileOut="ESEM", FileIn="ESEM.dat")  
+#' require(MplusAutomation)
+#' prepareMplusData(simData, filename="ESEM.dat")
+#' esemInvaGeomin(2, simData, GroupVar = "TbyG", 
+#'                Groups=c("treatM", "contM", "treatF", "contF"),
+#'                Use = 1:12, FileIn="ESEM.dat")  
 
-esemInvaGeomin <- function(Fs=2, Data=data, GroupVar, Groups,
-                           Use=1:12, FileOut=getwd(), FileIn="data.dat",
+esemInvaGeomin <- function(Fs=2, Data, GroupVar, Groups,
+                           Use, FileOut=getwd(), FileIn,
                            Rotation="GEOMIN(OBLIQUE, .5)"){
   #WARNINGS
   if(any(regexpr("\\.", names(Data))>0)) stop(". is an illegal character in Mplus variable names")

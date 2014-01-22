@@ -2,8 +2,8 @@
 \alias{esemInvaTarget}
 \title{ESEM Invariance Script Writer}
 \usage{
-esemInvaTarget(Fs, Data, GroupVar, Groups, Use, FileOut = getwd(),
-  FileIn = "ESEM.dat", Pattern, LatentNames)
+esemInvaTarget(Fs, Data, GroupVar, Groups, Use, FileOut = getwd(), FileIn,
+  Pattern, LatentNames)
 }
 \arguments{
   \item{FS}{Number of factors for extraction}
@@ -35,8 +35,8 @@ ESEM invariance scripts for Mplus
 }
 \examples{
 data(simData)
-esemInvaTarget(2, data, GroupVar = "TbyG", c("treatM", "contM", "treatF", "contF"),
-               1:6, FileOut="ESEM", FileIn="ESEM.dat",
+esemInvaTarget(2, simData, GroupVar = "TbyG", c("treatM", "contM", "treatF", "contF"),
+               1:12, FileOut=getwd(), FileIn="ESEM.dat",
                Pattern=list(c(1,6), c(7,12)),LatentNames=c("Latent1", "Latent2")
                )
 }

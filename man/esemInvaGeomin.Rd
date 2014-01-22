@@ -2,9 +2,8 @@
 \alias{esemInvaGeomin}
 \title{ESEM Invariance Script Writer - Geomin}
 \usage{
-esemInvaGeomin(Fs = 2, Data = data, GroupVar, Groups, Use = 1:12,
-  FileOut = getwd(), FileIn = "data.dat",
-  Rotation = "GEOMIN(OBLIQUE, .5)")
+esemInvaGeomin(Fs = 2, Data, GroupVar, Groups, Use, FileOut = getwd(),
+  FileIn, Rotation = "GEOMIN(OBLIQUE, .5)")
 }
 \arguments{
   \item{FS}{Number of factors for extraction}
@@ -28,8 +27,8 @@ ESEM invariance scripts for Mplus
 }
 \examples{
 data(simData)
-esemInvaGeomin(2, data, GroupVar = "TbyG", c("treatM", "contM", "treatF", "contF"),
-               1:6, FileOut="ESEM", FileIn="ESEM.dat")
+esemInvaGeomin(2, simData, GroupVar = "TbyG", c("treatM", "contM", "treatF", "contF"),
+               use:1:12, FileIn="ESEM.dat")
 }
 \keyword{ESEM}
 \keyword{Mplus}
