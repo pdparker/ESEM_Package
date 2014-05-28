@@ -161,7 +161,7 @@ esemInvaTarget <- function(Fs, Data, GroupVar, Groups, Use,
   #First group must be seperate as code differs
   Model1 <- Model1[-c(innits[1,4]:innits[1,7])]
   #Give each model a unique name for Mplus automation
-  Model1 <- gsub('NO.', '01', Model1)
+  Model1[1] <- gsub('NO.', '01', Model1[1])
   #Save created input file
   writeLines(Model1, paste(FileOut,"Model1.inp", sep="/"))
   #Model 2
@@ -170,7 +170,7 @@ esemInvaTarget <- function(Fs, Data, GroupVar, Groups, Use,
        Model2<-Model2[-c(innits[i,1]:(innits[i,2]),innits[i,4]:innits[i,7])]
        }
   Model2 <- Model2[-c(innits[1,4]:innits[1,7])]
-  Model2 <- gsub('NO.', '02', Model2)
+  Model2[1] <- gsub('NO.', '02', Model2[1])
   writeLines(Model2, paste(FileOut,"Model2.inp", sep="/"))
   #Model 3 
   Model3 <- Model
@@ -178,7 +178,7 @@ esemInvaTarget <- function(Fs, Data, GroupVar, Groups, Use,
        Model3<- Model3[-c(innits[i,1]:(innits[i,2]-1), innits[i,4]:(innits[i,6]-1), innits[i,7])]
        }
   Model3 <- Model3[-c(innits[1,3]:(innits[1,6]-1), innits[1,7])]
-  Model3 <- gsub('NO.', '03', Model3)
+  Model3[1] <- gsub('NO.', '03', Model3[1])
   writeLines(Model3, paste(FileOut,"Model3.inp", sep="/"))
   #Model 4 
   Model4 <- Model
@@ -186,7 +186,7 @@ esemInvaTarget <- function(Fs, Data, GroupVar, Groups, Use,
        Model4<- Model4[-c(innits[i,1]:(innits[i,2]-1),innits[i,6]:innits[i,7])]
        }
   Model4 <- Model4[-c(innits[1,6]:innits[1,7])]       
-  Model4 <- gsub('NO.', '04', Model4)
+  Model4[1] <- gsub('NO.', '04', Model4[1])
   writeLines(Model4, paste(FileOut,"Model4.inp", sep="/"))
   #Model 5 
   Model5 <- Model
@@ -194,7 +194,7 @@ esemInvaTarget <- function(Fs, Data, GroupVar, Groups, Use,
       Model5 <- Model5[-c(innits[i,1]:innits[i,7])]
       }
   Model5 <- Model5[-c(innits[1,2]:(innits[1,3]-1), innits[1,4]:innits[1,7])]       
-  Model5 <- gsub('NO.', '05', Model5)
+  Model5[1] <- gsub('NO.', '05', Model5[1])
   writeLines(Model5, paste(FileOut,"Model5.inp", sep="/"))
   #Model 6 
   Model6<- Model
@@ -202,7 +202,7 @@ esemInvaTarget <- function(Fs, Data, GroupVar, Groups, Use,
       Model6 <- Model6[-c(innits[i,1]:(innits[i,2]-1), innits[i,7])]
       }
   Model6 <- Model6[-c(innits[1,7])]       
-  Model6 <- gsub('NO.', '06', Model6)
+  Model6[1] <- gsub('NO.', '06', Model6[1])
   writeLines(Model6, paste(FileOut,"Model6.inp", sep="/"))
   #Model 7 
   Model7 <- Model
@@ -210,7 +210,7 @@ esemInvaTarget <- function(Fs, Data, GroupVar, Groups, Use,
       Model7 <- Model7[-c(innits[i,1]:(innits[i,6]-1), innits[i,7])]
       }
   Model7 <- Model7[-c(innits[1,2]:(innits[1,3]-1), innits[1,4]:(innits[1,6]-1), innits[1,7])]       
-  Model7 <- gsub('NO.', '07', Model7)
+  Model7[1] <- gsub('NO.', '07', Model7[1])
   writeLines(Model7, paste(FileOut,"Model7.inp", sep="/"))
   #Model 8 
   Model8 <- Model
@@ -218,7 +218,7 @@ esemInvaTarget <- function(Fs, Data, GroupVar, Groups, Use,
       Model8 <- Model8[-c(innits[i,1]:(innits[i,4]-1), innits[i,6]:innits[i,7])]
       }
   Model8 <- Model8[-c(innits[1,2]:(innits[1,3]-1), innits[1,6]:innits[1,7])]       
-  Model8 <- gsub('NO.', '08', Model8)
+  Model8[1] <- gsub('NO.', '08', Model8[1])
   writeLines(Model8, paste(FileOut,"Model8.inp", sep="/"))
   #Model 9 
   Model9 <- Model
@@ -226,7 +226,7 @@ esemInvaTarget <- function(Fs, Data, GroupVar, Groups, Use,
       Model9 <- Model9[-c(innits[i,1]:(innits[i,4]-1), innits[i,7])]
       }
   Model9 <- Model9[-c(innits[1,2]:(innits[1,3]-1), innits[1,7])]       
-  Model9 <- gsub('NO.', '09', Model9)
+  Model9[1] <- gsub('NO.', '09', Model9[1])
   writeLines(Model9, paste(FileOut,"Model9.inp", sep="/"))
   #Model 10 
   Model10 <- Model
@@ -234,7 +234,7 @@ esemInvaTarget <- function(Fs, Data, GroupVar, Groups, Use,
       Model10 <- Model10[-c(innits[i,1]:(innits[i,2]-1), innits[i,3]:innits[i,7])]
       }
   Model10 <- Model10[-c(innits[1,4]:innits[1,7])]       
-  Model10 <- gsub('NO.', '10', Model10)
+  Model10[1] <- gsub('NO.', '10', Model10[1])
   writeLines(Model10, paste(FileOut,"Model10.inp", sep="/"))
   #Model 11 
   Model11 <- Model
@@ -242,7 +242,7 @@ esemInvaTarget <- function(Fs, Data, GroupVar, Groups, Use,
       Model11 <- Model11[-c(innits[i,1]:(innits[i,2]-1), innits[i,3]:(innits[i,6]-1), innits[i,7])]
       }
   Model11 <- Model11[-c(innits[1,4]:(innits[1,6]-1), innits[1,7])]       
-  Model11 <- gsub('NO.', '11', Model11)
+  Model11[1] <- gsub('NO.', '11', Model11[1])
   writeLines(Model11, paste(FileOut,"Model11.inp", sep="/"))
   #Model 12 
   Model12 <- Model
@@ -250,7 +250,7 @@ esemInvaTarget <- function(Fs, Data, GroupVar, Groups, Use,
       Model12 <- Model12[-c(innits[i,1]:(innits[i,2]-1), innits[i,3]:(innits[i,4]-1), innits[i,6]:innits[i,7])]
       }
   Model12 <- Model12[-c(innits[1,6]:innits[1,7])]       
-  Model12 <- gsub('NO.', '12', Model12)
+  Model12[1] <- gsub('NO.', '12', Model12[1])
   writeLines(Model12, paste(FileOut,"Model12.inp", sep="/"))
   #Model 13 
   Model13 <- Model
@@ -258,7 +258,7 @@ esemInvaTarget <- function(Fs, Data, GroupVar, Groups, Use,
       Model13 <- Model13[-c(innits[i,1]:(innits[i,2]-1), innits[i,3]:(innits[i,4]-1), innits[i,7])]
       }
   Model13 <- Model13[-c(innits[1,7])]       
-  Model13 <- gsub('NO.', '13', Model13)
+  Model13[1] <- gsub('NO.', '13', Model13[1])
   writeLines(Model13, paste(FileOut,"Model13.inp", sep="/"))
   #Removes master file so it does not get used in Mplus Automation
   file.remove(paste0(FileOut,"/ModelTemp.inp"))
